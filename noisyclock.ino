@@ -12,14 +12,35 @@ int lastPlayed = -1;    // Variable to store the last time the sound was played
 
 struct HourSound {
   int hourToBePlayed;
-  const char* soundFileName; // name length limit is like 8
+  char* soundFileName; // name length limit is like 8
 };
 
 // Sounds to play
 HourSound hourSounds[] = {
-  {0, "midnight.wav"},
-  {1, "oneam.wav"},
-  {2, "twoam.wav"},
+  // {0, "midnight.wav"},
+  // {1, "oneam.wav"},
+  // {2, "twoam.wav"},
+  // {3, "threeam.wav"},
+  // {4, "fouram.wav"},
+  // {5, "fiveam.wav"},
+  // {6, "sixam.wav"},
+  // {7, "sevenam.wav"},
+  // {8, "eightam.wav"},
+  // {9, "nineam.wav"},
+  {10, "robin.wav"},
+  {11, "pigeon.wav"},
+  {12, "buzzard.wav"},
+  {13, "magpie.wav"},
+  {14, "ngale.wav"},
+  {15, "backbird.wav"},
+  {16, "raven.wav"},
+  {17, "bluetit.wav"},
+  {18, "woodpeck.wav"},
+  {19, "wrensong.wav"},
+  {20, "sop.wav"},
+  {21, "nightjar.wav"},
+  {22, "owl.wav"},
+  // {23, "elevenpm.wav"},
 };
 
 void setup(){
@@ -48,8 +69,7 @@ void setup(){
   audio.speakerPin = 9;     // Set the speaker pin to 9
   audio.setVolume(5);       // volume (0 to 7) leave at 5
 
-
-//  audio.play("ngale.wav");
+  audio.play("ngale.wav");
 }
 
 void loop(){
