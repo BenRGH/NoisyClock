@@ -67,9 +67,9 @@ void setup(){
   Serial.println("we good");
   
   audio.speakerPin = 9;     // Set the speaker pin to 9
-  audio.setVolume(5);       // volume (0 to 7) leave at 5
+  audio.setVolume(3);       // volume (0 to 7) leave at 5
 
-  audio.play("ngale.wav");
+  // audio.play("ngale.wav");
 }
 
 void loop(){
@@ -89,8 +89,15 @@ void loop(){
     Serial.println(lastPlayed);
 
     // Play sound for this hour
-    for (int i = 0; i < sizeof(hourSounds)-1; i++) {
+    for (int i = 0; i < (sizeof(hourSounds) - 1); i++) {
       if (hourSounds[i].hourToBePlayed == now.hour()) {
+        // check file exists for hour
+        if (!SD.exists(hourSounds[i].soundFileName)) {
+          Serial.println("no file bueno");
+          break;
+        }
+        Serial.print("playing ");
+        Serial.println(hourSounds[i].soundFileName);
         audio.play(hourSounds[i].soundFileName);
         break;
       }
